@@ -1,0 +1,21 @@
+# DataSource Config
+spring:
+  datasource:
+    #type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ifast?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: 1
+server:
+  session-timeout: 1800
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8282
+  uri-encoding: utf-8
+#配置日志
+logging:
+  level:
+    root: info
+    org.thymeleaf.TemplateEngine: info
+    org.springframework.web: info
