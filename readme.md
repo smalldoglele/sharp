@@ -13,7 +13,7 @@ blocked 启用/停用 0/1
 drop table if exists `sys_user`;
 create table `sys_user`
 (
-	`id` bigint not null comment '主键',
+	`id` bigint not null auto_increment comment '主键',
 	create_time timestamp not null default current_timestamp comment '创建时间',
 	update_time timestamp not null default current_timestamp on update current_timestamp comment '更新时间',
 	create_by bigint not null comment '创建人',
@@ -30,5 +30,5 @@ create table `sys_user`
 	sex tinyint comment '性别 0-未知;1-男;2-女',
 	birth_date datetime comment '出生日期',
 	primary key(`id`)
-);
+) comment='用户信息表';
 ```

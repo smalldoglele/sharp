@@ -34,8 +34,10 @@ public class CodeGenerator {
 
         //包配置
         PackageConfig packageConfig = new PackageConfig();
-        packageConfig.setModuleName(scanner("模块名"));
+        //packageConfig.setModuleName(scanner("模块名"));
         packageConfig.setParent("cn.vagile.sharp");
+        packageConfig.setEntity("bean.entity");
+
         generator.setPackageInfo(packageConfig);
         //配置面板
         TemplateConfig templateConfig = new TemplateConfig();
@@ -46,13 +48,16 @@ public class CodeGenerator {
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
         strategyConfig.setEntityLombokModel(true);
+        strategyConfig.setEntityBuilderModel(false);
         strategyConfig.setRestControllerStyle(true);
-        //公共父类
-        strategyConfig.setSuperEntityClass("");
-        strategyConfig.setSuperEntityColumns("");
+        //公共父类 start
+        strategyConfig.setSuperEntityClass("cn.vagile.sharp.bean.core.BaseEntity");
+        strategyConfig.setSuperEntityColumns("id","create_time","update_time","create_by","update_by","deleted");
+        //公共父类 end
         strategyConfig.setInclude(scanner("表名,多个英文逗号分割").split(","));
         strategyConfig.setControllerMappingHyphenStyle(true);
-        strategyConfig.setTablePrefix(packageConfig.getModuleName()+"_");
+        //strategyConfig.setTablePrefix(packageConfig.getModuleName()+"_");
+        strategyConfig.setTablePrefix(scanner("表前缀"));
         generator.setStrategy(strategyConfig);
         //执行
         generator.execute();
