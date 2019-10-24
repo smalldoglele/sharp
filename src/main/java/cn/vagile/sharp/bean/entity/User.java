@@ -1,8 +1,8 @@
 package cn.vagile.sharp.bean.entity;
 
+import cn.vagile.sharp.bean.object.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
-import cn.vagile.sharp.bean.core.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -20,8 +20,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("sys_user")
 public class User extends BaseEntity {
-
-    private static final long serialVersionUID=1L;
 
     /**
      * 是否禁用

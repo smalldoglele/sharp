@@ -26,3 +26,4 @@ logging:
     root: info
     org.thymeleaf.TemplateEngine: info
     org.springframework.web: info
+    cn.vagile.sharp.mapper.UserMapper: trace

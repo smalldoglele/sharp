@@ -51,7 +51,7 @@ public class CodeGenerator {
         strategyConfig.setEntityBuilderModel(false);
         strategyConfig.setRestControllerStyle(true);
         //公共父类 start
-        strategyConfig.setSuperEntityClass("cn.vagile.sharp.bean.core.BaseEntity");
+        strategyConfig.setSuperEntityClass("cn.vagile.sharp.bean.object.BaseEntity");
         strategyConfig.setSuperEntityColumns("id","create_time","update_time","create_by","update_by","deleted");
         //公共父类 end
         strategyConfig.setInclude(scanner("表名,多个英文逗号分割").split(","));

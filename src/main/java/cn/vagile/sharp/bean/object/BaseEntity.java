@@ -1,4 +1,4 @@
-package cn.vagile.sharp.bean.core;
+package cn.vagile.sharp.bean.object;
 
 import lombok.Data;
 

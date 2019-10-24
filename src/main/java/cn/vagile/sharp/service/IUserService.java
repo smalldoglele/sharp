@@ -1,6 +1,9 @@
 package cn.vagile.sharp.service;
 
 import cn.vagile.sharp.bean.entity.User;
+import cn.vagile.sharp.bean.params.UserPageParams;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    IPage<User> selectPage(UserPageParams pageParams);
 }
