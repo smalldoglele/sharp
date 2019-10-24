@@ -4,7 +4,7 @@
 <head th:replace="fragment::head(~{::title},~{})">
     <title>首页-运营后台</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap-table/dist/bootstrap-table.min.css">
 </head>
 
 <body class="no-skin">
@@ -24,6 +24,7 @@
             <div class="page-content">
                 <div th:replace="fragment::ace-settings-container"/>
                 <div class="row">
+
                     <div class="col-xs-12">
                         <!--页面 内容 开始-->
                                 <table id="simple-table" class="table  table-bordered table-hover">
@@ -42,9 +43,9 @@
 <th:block th:replace="fragment::basic-scripts"/>
 <!-- 页面特定插件脚本 -->
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+<script src="/assets/bootstrap-table/dist/bootstrap-table.min.js"></script>
 <!-- Latest compiled and minified Locales -->
-<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/assets/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
 <!-- ACE脚本 -->
 <th:block th:replace="fragment::ace-scripts"/>
 <!-- 与此页相关的内联脚本 -->
