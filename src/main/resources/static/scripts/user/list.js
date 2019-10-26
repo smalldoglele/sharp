@@ -31,7 +31,7 @@ function load() {
                 //	showToggle : true,
                 //	showColumns : true,
                 iconSize: 'outline',
-                toolbar: '#exampleToolbar',
+                toolbar: '#toolbar',
                 striped: true, // 设置为true会有隔行变色效果
                 dataType: "json", // 服务器返回的数据类型
                 pagination: true, // 设置为true会在底部显示分页条
@@ -108,7 +108,7 @@ function load() {
                         title: '生日'
                     },
                     {
-                        visible: false,
+                        visible: true,
                         field: 'createTime',
                         title: '创建时间'
                     },
@@ -132,16 +132,9 @@ function load() {
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var e = '<a class="btn btn-primary btn-sm ' + 1 + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
-                                + row.id
-                                + '\')"><i class="fa fa-edit"></i></a> ';
-                            var d = '<a class="btn btn-warning btn-sm ' +2  + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
-                                + row.id
-                                + '\')"><i class="fa fa-remove"></i></a> ';
-                            var f = '<a class="btn btn-success btn-sm ' + 2 + '" href="#" title="增加"  mce_href="#" onclick="addD(\''
-                                + row.type + '\',\'' + row.description
-                                + '\')"><i class="fa fa-plus"></i></a> ';
-                            return e + d + f;
+                            var e = '<button class="btn btn-success btn-xs"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
+                            var d = '<button class="btn btn-danger btn-xs"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
+                            return e + d;
                         }
                     }]
             });
@@ -161,10 +154,9 @@ function add() {
     layer.open({
         type: 2,
         title: '增加',
-        maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
-        content: prefix + '/add' // iframe的url
+        area: ['800px', '61.8%'],
+        content: prefix + '/edit' // iframe的url
     });
 }
 

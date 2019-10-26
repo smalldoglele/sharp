@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragment::head(~{::title},~{})">
+<head th:replace="fragment::head(~{::title},~{::link})">
     <title>首页-运营后台</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/assets/bootstrap-table/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/assets/layer/theme/default/layer.css">
 </head>
 
 <body class="no-skin">
@@ -24,12 +25,26 @@
             <div class="page-content">
                 <div th:replace="fragment::ace-settings-container"/>
                 <div class="row">
-
                     <div class="col-xs-12">
-                        <!--页面 内容 开始-->
-                                <table id="simple-table" class="table  table-bordered table-hover">
-                                </table>
-                        <!-- 页面 内容 结束 -->
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control"  id="userName" placeholder="用户名">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="ace-icon fa fa-check"></i>   查询</button>
+                        </form>
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="toolbar" class="btn-group">
+                            <button class="btn btn-primary" onclick="javascript:add();"><i class="ace-icon glyphicon glyphicon-file"></i>新增</button>
+                            <button class="btn btn-primary"><i class="ace-icon fa fa-pencil-square-o"></i>编辑</button>
+                            <button class="btn btn-danger"><i class="ace-icon fa fa-trash-o"></i>删除</button>
+                            <button class="btn btn-success"><i class="ace-icon fa fa-check-square-o"></i>审核</button>
+                        </div>
+                        <table id="simple-table" class="table  table-bordered table-hover"></table>
+
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
@@ -42,10 +57,9 @@
 <!--基本脚本-->
 <th:block th:replace="fragment::basic-scripts"/>
 <!-- 页面特定插件脚本 -->
-<!-- Latest compiled and minified JavaScript -->
 <script src="/assets/bootstrap-table/dist/bootstrap-table.min.js"></script>
-<!-- Latest compiled and minified Locales -->
 <script src="/assets/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="/assets/layer/layer.js"></script>
 <!-- ACE脚本 -->
 <th:block th:replace="fragment::ace-scripts"/>
 <!-- 与此页相关的内联脚本 -->

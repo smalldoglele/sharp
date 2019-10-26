@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment::head(~{::title},~{link})">
+    <title>首页-运营后台</title>
+</head>
+
+<body class="no-skin">
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 用户名: </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="form-field-1" placeholder="请输入用户名称" class="col-xs-10 col-sm-5"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--基本脚本-->
+<th:block th:replace="fragment::basic-scripts"/>
+<!-- 页面特定插件脚本 -->
+
+<!-- ACE脚本 -->
+<th:block th:replace="fragment::ace-scripts"/>
+<!-- 与此页相关的内联脚本 -->
+
+</body>
+</html>

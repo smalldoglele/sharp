@@ -83,6 +83,10 @@
             <version>1.9.6</version>
         </dependency>
         <!--swagger2 end-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

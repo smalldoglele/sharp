@@ -8,9 +8,8 @@ spring:
     password: 1
   #日期格式化
   jackson:
-    #date-format: yyyy-MM-dd HH:mm:ss
-    serialization:
-      write-dates-as-timestamps: true
+    joda-date-time-format:
+
   thymeleaf:
     cache: false
 server:

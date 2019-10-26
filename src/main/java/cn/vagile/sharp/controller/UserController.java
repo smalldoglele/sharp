@@ -6,13 +6,10 @@ import cn.vagile.sharp.bean.object.ResultEntity;
 import cn.vagile.sharp.bean.params.UserPageParams;
 import cn.vagile.sharp.service.IUserService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -22,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author walden
  * @since 2019-10-17
  */
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -33,6 +30,22 @@ public class UserController {
     public ResultEntity<IPage<User>> list(UserPageParams pageParams) {
         IPage<User> page = userService.selectPage(pageParams);
         return ResultEntity.ok(page);
+    }
+
+    @GetMapping("edit")
+    public String edit(Long id, Model model) {
+        if (id != null) {
+            User user = userService.getById(id);
+            model.addAttribute("user", user);
+        }
+        return "user/edit";
+    }
+
+    @PostMapping("saveOrUpdate")
+    @ResponseBody
+    public ResultEntity saveOrUpdate(User user) {
+        userService.saveOrUpdate(user);
+        return ResultEntity.ok().build();
     }
 }
 
