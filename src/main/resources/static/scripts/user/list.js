@@ -153,30 +153,13 @@ function reLoad() {
 function add() {
     layer.open({
         type: 2,
-        skin: 'layui-layer-lan',
-        title: '增加',
-        shadeClose: false, // 点击遮罩关闭层
+        title: '新增',
+        shadeClose: false,
         area: ['800px'],
-        content: prefix + '/edit', // iframe的url
-        btn:['确定','取消'],
+        content: prefix + '/edit',
         offset: '100px',
-        btnAlign: 'c',
-        yes:function(index, layero){
-            console.log(index);
-            console.log(layero);
-            console.log(1);
-        },
-        btn2:function(index, layero){
-            console.log(index);
-            console.log(layero);
-            console.log(2)
-        },
         success: function(layero, index){
-/*            var body = layer.getChildFrame('body', index);
-            var iframeWin = window[layero.find('iframe')[0]['name']]; //得到iframe页的窗口对象，执行iframe页的方法：iframeWin.method();
-            console.log(body.html()) //得到iframe页的body内容
-            body.find('input').val('Hi，我是从父页来的');*/
-            layer.iframeAuto(index); //重点2
+            layer.iframeAuto(index);
         }
     });
 }
