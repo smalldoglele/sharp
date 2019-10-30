@@ -3,9 +3,11 @@ package cn.vagile.sharp.bean.entity;
 import cn.vagile.sharp.bean.object.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -69,6 +71,7 @@ public class User extends BaseEntity {
     /**
      * 出生日期
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime birthDate;
 
 

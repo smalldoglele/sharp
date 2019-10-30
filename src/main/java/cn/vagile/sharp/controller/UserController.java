@@ -2,6 +2,7 @@ package cn.vagile.sharp.controller;
 
 
 import cn.vagile.sharp.bean.entity.User;
+import cn.vagile.sharp.bean.object.QMap;
 import cn.vagile.sharp.bean.object.ResultEntity;
 import cn.vagile.sharp.bean.params.UserPageParams;
 import cn.vagile.sharp.service.IUserService;
@@ -44,8 +45,17 @@ public class UserController {
     @PostMapping("saveOrUpdate")
     @ResponseBody
     public ResultEntity saveOrUpdate(User user) {
+        user.setCreateBy(1l);
+        user.setUpdateBy(1l);
         userService.saveOrUpdate(user);
         return ResultEntity.ok().build();
+    }
+
+    @RequestMapping("userNameUnique")
+    @ResponseBody
+    public boolean userNameUnique(String userName) {
+        User user = userService.getUserByUserName(userName);
+        return user == null;
     }
 }
 

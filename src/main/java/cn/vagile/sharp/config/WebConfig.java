@@ -1,14 +1,19 @@
 package cn.vagile.sharp.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.format.datetime.DateFormatter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * web的配置文件
  */
@@ -59,4 +64,5 @@ public class WebConfig implements WebMvcConfigurer {
             viewResolver.setStaticVariables(vars);*/
         }
     }
+
 }

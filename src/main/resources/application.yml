@@ -1,15 +1,10 @@
 # DataSource Config
 spring:
   datasource:
-    #type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/sharp_dev?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
     username: root
     password: 1
-  #日期格式化
-  jackson:
-    joda-date-time-format:
-
   thymeleaf:
     cache: false
 server:
@@ -26,3 +21,7 @@ logging:
     org.thymeleaf.TemplateEngine: info
     org.springframework.web: info
     cn.vagile.sharp.mapper.UserMapper: trace
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto

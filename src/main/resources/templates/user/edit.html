@@ -11,11 +11,13 @@
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
-            <form class="form-horizontal margin-20" role="form" id="form">
+            <form class="form-horizontal margin-20" method="post" role="form" id="form" action="/user/saveOrUpdate">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" for="userName"> 用户名: </label>
+                    <label class="col-sm-4 control-label no-padding-right" for="userName"><span class="red">*</span> 用户名: </label>
                     <div class="col-sm-4">
-                            <input type="text" id="userName" name="userName" placeholder="请输入用户名称" required class="col-xs-10 col-sm-12"/>
+                            <input type="text" id="userName" name="userName" placeholder="请输入用户名称" required class="col-xs-10 col-sm-12"
+                                   data-rule-remote="/user/userNameUnique" data-msg-remote="用户名【{0}】已经存在"
+                            />
                     </div>
                 </div>
 
@@ -32,10 +34,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" for="sex"> 性别: </label>
+                    <label class="col-sm-4 control-label no-padding-right" for="sex"><span class="red">*</span> 性别: </label>
                     <div class="col-sm-4">
-                        <select type="text" id="sex" name="sex" placeholder="请输性别" class="col-xs-10 col-sm-12">
-                            <option value="0">请选择</option>
+                        <select type="text" id="sex" name="sex" placeholder="请输入性别" class="col-xs-10 col-sm-12" required data-msg-required="请选择性别">
+                            <option value="">请选择</option>
                             <option value="1">男</option>
                             <option value="2">女</option>
                         </select>
@@ -55,9 +57,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" for="mobile"> 手机号: </label>
+                    <label class="col-sm-4 control-label no-padding-right" for="mobile"><span class="red">*</span> 手机号: </label>
                     <div class="col-sm-4">
-                        <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" class="col-xs-10 col-sm-12" required />
+                        <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" class="col-xs-10 col-sm-12" required data-rule-phoneZH="true"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -71,7 +73,7 @@
                     <label class="col-sm-4 control-label no-padding-right" for="blocked"> 是否有效: </label>
                     <div class="col-sm-4 padding-10">
                         <label class="control-label">
-                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox" required/>
+                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox" checked/>
                             <span class="lbl"></span>
                         </label>
                     </div>
@@ -101,7 +103,8 @@
 <script src="/assets/js/jquery.validate-messages_zh.js"></script>
 <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
-
+<script src="/assets/js/jquery.form.min.js"></script>
+<script src="/assets/layer/layer.js"></script>
 <!-- ACE脚本 -->
 <th:block th:replace="fragment::ace-scripts"/>
 <!-- 与此页相关的内联脚本 -->

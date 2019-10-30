@@ -27,6 +27,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         IPage<User> page = params.getPage();
         LambdaQueryWrapper wrapper = new QueryWrapper().lambda();
         wrapper.like(StringUtils.isNotEmpty(params.getName()), "userName", params.getName());
-        return this.page(page, wrapper);
+        return page(page, wrapper);
+    }
+
+    @Override
+    public User getUserByUserName(String userName) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name", userName);
+        return getOne(queryWrapper, false);
     }
 }

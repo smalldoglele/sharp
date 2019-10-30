@@ -17,4 +17,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IUserService extends IService<User> {
 
     IPage<User> selectPage(UserPageParams pageParams);
+
+    User getUserByUserName(String userName);
 }
