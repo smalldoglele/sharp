@@ -19,4 +19,6 @@ public interface IUserService extends IService<User> {
     IPage<User> selectPage(UserPageParams pageParams);
 
     User getUserByUserName(String userName);
+
+    User getUserByUserNameAndNotSelf(String userName, Long selfId);
 }

@@ -4,9 +4,22 @@ $('#form').validate({
     focusInvalid: false,
     ignore: "",
     debug: true,
-    rules: {},
+    rules: {
+        userName:{
+            remote:{
+                url:"/user/userNameUnique",
+                data:{
+                    selfId:function(){return $("#id").val();}
+                }
+            }
+        }
+    },
 
-    messages: {},
+    messages: {
+        userName:{
+            remote:"用户名【{0}】已经存在"
+        }
+    },
 
 
     highlight: function (e) {

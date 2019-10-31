@@ -131,8 +131,8 @@ function load() {
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var e = '<button class="btn btn-success btn-xs"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
-                            var d = '<button class="btn btn-danger btn-xs"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
+                            var e = '<button class="btn btn-success btn-xs" onclick="edit('+value+')"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
+                            var d = '<button class="btn btn-danger btn-xs"  onclick="del('+value+')"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
                             return e + d;
                         }
                     }]
@@ -155,8 +155,8 @@ function add() {
         title: '新增',
         shadeClose: false,
         area: ['800px'],
-        content: prefix + '/edit',
         offset: '100px',
+        content: prefix + '/edit',
         success: function(layero, index){
             layer.iframeAuto(index);
         }
@@ -168,13 +168,17 @@ function edit(id) {
         type: 2,
         title: '编辑',
         maxmin: true,
-        shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
-        content: prefix + '/edit/' + id // iframe的url
+        shadeClose: false,
+        area: ['800px'],
+        offset: '100px',
+        content: prefix + '/edit?id=' + id,
+        success: function(layero, index){
+            layer.iframeAuto(index);
+        }
     });
 }
 
-function remove(id) {
+function del(id) {
     layer.confirm('确定要删除选中的记录？', {
         btn: ['确定', '取消']
     }, function () {

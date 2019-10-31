@@ -35,10 +35,14 @@ public class UserController {
 
     @GetMapping("edit")
     public String edit(Long id, Model model) {
+        User user = null;
         if (id != null) {
-            User user = userService.getById(id);
-            model.addAttribute("user", user);
+            user = userService.getById(id);
+
+        } else {
+            user = new User();
         }
+        model.addAttribute("user", user);
         return "user/edit";
     }
 
@@ -53,8 +57,8 @@ public class UserController {
 
     @RequestMapping("userNameUnique")
     @ResponseBody
-    public boolean userNameUnique(String userName) {
-        User user = userService.getUserByUserName(userName);
+    public boolean userNameUnique(String userName,Long selfId) {
+        User user = userService.getUserByUserNameAndNotSelf(userName,selfId);
         return user == null;
     }
 }

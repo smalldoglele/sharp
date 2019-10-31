@@ -36,4 +36,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         queryWrapper.eq("user_name", userName);
         return getOne(queryWrapper, false);
     }
+
+    @Override
+    public User getUserByUserNameAndNotSelf(String userName, Long selfId) {
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name", userName);
+        queryWrapper.ne(selfId != null, "id", selfId);
+        return getOne(queryWrapper, false);
+    }
 }

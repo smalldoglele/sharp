@@ -1,7 +1,7 @@
 package cn.vagile.sharp.config;
 
-import cn.vagile.sharp.base.formatter.CustomDateAutoFormatter;
-import cn.vagile.sharp.base.formatter.CustomLocalDateTimeAutoFormatter;
+import cn.vagile.sharp.base.converter.CustomDateAutoConverter;
+import cn.vagile.sharp.base.converter.CustomLocalDateTimeAutoConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -44,8 +44,8 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(new CustomDateAutoFormatter());
-        registry.addFormatter(new CustomLocalDateTimeAutoFormatter());
+        registry.addConverter(new CustomDateAutoConverter());
+        registry.addConverter(new CustomLocalDateTimeAutoConverter());
     }
 
     /**

@@ -11,12 +11,14 @@
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
-            <form class="form-horizontal margin-20" method="post" role="form" id="form" action="/user/saveOrUpdate">
+            <form class="form-horizontal margin-20" method="post" role="form" id="form" action="/user/saveOrUpdate" th:object="${user}">
+                <input type="hidden" name="id" th:field="*{id}" value="123">
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="userName"><span class="red">*</span> 用户名: </label>
                     <div class="col-sm-4">
                             <input type="text" id="userName" name="userName" placeholder="请输入用户名称" required class="col-xs-10 col-sm-12"
                                    data-rule-remote="/user/userNameUnique" data-msg-remote="用户名【{0}】已经存在"
+                                   th:field="*{userName}"
                             />
                     </div>
                 </div>
@@ -24,19 +26,19 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="nickName"> 昵称: </label>
                     <div class="col-sm-4">
-                        <input type="text" id="nickName" name="nickName" placeholder="请输入用户昵称" class="col-xs-10 col-sm-12"/>
+                        <input type="text" id="nickName" name="nickName" placeholder="请输入用户昵称" class="col-xs-10 col-sm-12" th:field="*{nickName}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="trueName"> 真实姓名: </label>
                     <div class="col-sm-4">
-                        <input type="text" id="trueName" name="trueName" placeholder="请输入真实姓名" class="col-xs-10 col-sm-12"/>
+                        <input type="text" id="trueName" name="trueName" placeholder="请输入真实姓名" class="col-xs-10 col-sm-12" th:field="*{trueName}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="sex"><span class="red">*</span> 性别: </label>
                     <div class="col-sm-4">
-                        <select type="text" id="sex" name="sex" placeholder="请输入性别" class="col-xs-10 col-sm-12" required data-msg-required="请选择性别">
+                        <select type="text" id="sex" name="sex" placeholder="请输入性别" class="col-xs-10 col-sm-12" required data-msg-required="请选择性别" th:field="*{sex}">
                             <option value="">请选择</option>
                             <option value="1">男</option>
                             <option value="2">女</option>
@@ -47,33 +49,33 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="password"> 初始密码 </label>
                     <div class="col-sm-4">
-                        <input type="text" id="password" name="password" placeholder="请输入初始密码" class="col-xs-10 col-sm-12"/>
+                        <input type="text" id="password" name="password" placeholder="请输入初始密码" class="col-xs-10 col-sm-12" th:field="*{password}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="email"> Email: </label>
                     <div class="col-sm-4">
-                        <input type="text" id="email" name="email" placeholder="请输入Email" class="col-xs-10 col-sm-12" data-rule-email="true"/>
+                        <input type="text" id="email" name="email" placeholder="请输入Email" class="col-xs-10 col-sm-12" data-rule-email="true" th:field="*{email}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="mobile"><span class="red">*</span> 手机号: </label>
                     <div class="col-sm-4">
-                        <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" class="col-xs-10 col-sm-12" required data-rule-phoneZH="true"/>
+                        <input type="text" id="mobile" name="mobile" placeholder="请输入手机号" class="col-xs-10 col-sm-12" required data-rule-phoneZH="true" th:field="*{mobile}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="birthDate"> 出生日期: </label>
                     <div class="col-sm-4">
                         <input class="form-control date-picker col-xs-10 col-sm-12" id="birthDate" name="birthDate"
-                               type="text" placeholder="请输入出生日期">
+                               type="text" placeholder="请输入出生日期" th:field="*{birthDate}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="blocked"> 是否有效: </label>
                     <div class="col-sm-4 padding-10">
                         <label class="control-label">
-                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox" checked/>
+                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox"  th:checked="*{blocked}"/>
                             <span class="lbl"></span>
                         </label>
                     </div>
