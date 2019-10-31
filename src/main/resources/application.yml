@@ -17,9 +17,9 @@ server:
 #配置日志
 logging:
   level:
-    root: info
-    org.thymeleaf.TemplateEngine: info
-    org.springframework.web: info
+    root: debug
+    org.thymeleaf.TemplateEngine: debug
+    org.springframework.web: debug
     cn.vagile.sharp.mapper.UserMapper: trace
 mybatis-plus:
   global-config:
