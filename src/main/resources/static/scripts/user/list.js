@@ -3,25 +3,7 @@ $(function () {
     load();
 });
 
-function selectLoad() {
-/*    $(".chosen-select").chosen({
-        maxHeight: 200
-    });
-    //点击事件
-    $('.chosen-select').on('change', function (e, params) {
-        console.log(params.selected);
-        var opt = {
-            query: {
-                type: params.selected,
-                name: $('#searchName').val()
-            }
-        }
-        $('#exampleTable').bootstrapTable('refresh', opt);
-    });*/
-}
-
 function load() {
-    selectLoad();
     $('#simple-table')
         .bootstrapTable(
             {
@@ -131,15 +113,15 @@ function load() {
                         field: 'id',
                         align: 'left',
                         formatter: function (value, row, index) {
-                            var e = '<button class="btn btn-success btn-xs" onclick="edit('+value+')"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
-                            var d = '<button class="btn btn-danger btn-xs"  onclick="del('+value+')"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
-                            return e + (value!=1?d:'');
+                            var e = '<button class="btn btn-success btn-xs" onclick="edit(' + value + ')"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
+                            var d = '<button class="btn btn-danger btn-xs"  onclick="del(' + value + ')"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
+                            return e + (value != 1 ? d : '');
                         }
                     }]
             });
 }
 
-function reLoad() {
+function reload() {
     var opt = {
         query: {
             type: $('.chosen-select').val(),
@@ -157,7 +139,7 @@ function add() {
         area: ['800px'],
         offset: '100px',
         content: prefix + '/edit',
-        success: function(layero, index){
+        success: function (layero, index) {
             layer.iframeAuto(index);
         }
     });
@@ -171,7 +153,7 @@ function edit(id) {
         area: ['800px'],
         offset: '100px',
         content: prefix + '/edit?id=' + id,
-        success: function(layero, index){
+        success: function (layero, index) {
             layer.iframeAuto(index);
         }
     });
@@ -187,10 +169,10 @@ function del(id) {
             data: {
                 'id': id
             },
-            success: function (r) {
-                if (r.code == 0) {
-                    layer.msg(r.msg);
-                    reLoad();
+            success: function (data) {
+                if (data.status) {
+                    layer.msg("删除成功");
+                    reload();
                 } else {
                     layer.msg(r.msg);
                 }
@@ -199,46 +181,3 @@ function del(id) {
     })
 }
 
-function addD(type, description) {
-    layer.open({
-        type: 2,
-        title: '增加',
-        shadeClose: false, // 点击遮罩关闭层
-        area: ['800px', '520px'],
-        content: prefix + '/add/' + type + '/' + description // iframe的url
-    });
-}
-
-function batchRemove() {
-    var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
-    if (rows.length == 0) {
-        layer.msg("请选择要删除的数据");
-        return;
-    }
-    layer.confirm("确认要删除选中的'" + rows.length + "'条数据吗?", {
-        btn: ['确定', '取消']
-        // 按钮
-    }, function () {
-        var ids = new Array();
-        // 遍历所有选择的行数据，取每条数据对应的ID
-        $.each(rows, function (i, row) {
-            ids[i] = row['id'];
-        });
-        $.ajax({
-            type: 'POST',
-            data: {
-                "ids": ids
-            },
-            url: prefix + '/batchRemove',
-            success: function (r) {
-                if (r.code == 0) {
-                    layer.msg(r.msg);
-                    reLoad();
-                } else {
-                    layer.msg(r.msg);
-                }
-            }
-        });
-    }, function () {
-    });
-}
