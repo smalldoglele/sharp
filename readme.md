@@ -32,3 +32,9 @@ create table `sys_user`
 	primary key(`id`)
 ) comment='用户信息表';
 ```
+#### 规范和规则
+1.mybatis plus中的wrapper类 禁止在 RPC 调用中把 Wrapper 进行传输,wrapper类不能上浮到controller中,可以自定义参数对象传值;
+2.查询分页列表参数对象,直接继承PageParams 一个实体对应一个对象;
+3.templates/user-demo 文件夹中是crud的例子,可以参考风格
+4.jquery validation 推荐使用data-rule-*和data-msg-*来实现,如果需要额外逻辑,使用js方式来实现
+5.common.js是工具类js和项目相关性不大,base.js是项目相关性的js基础类;
