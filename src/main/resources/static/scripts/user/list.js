@@ -129,11 +129,11 @@ function load() {
                     {
                         title: '操作',
                         field: 'id',
-                        align: 'center',
+                        align: 'left',
                         formatter: function (value, row, index) {
                             var e = '<button class="btn btn-success btn-xs" onclick="edit('+value+')"><i class="ace-icon fa fa-pencil-square-o icon-only"></i></button> ';
                             var d = '<button class="btn btn-danger btn-xs"  onclick="del('+value+')"><i class="ace-icon fa fa-trash-o icon-only"></i></button>';
-                            return e + d;
+                            return e + (value!=1?d:'');
                         }
                     }]
             });
@@ -167,7 +167,6 @@ function edit(id) {
     layer.open({
         type: 2,
         title: '编辑',
-        maxmin: true,
         shadeClose: false,
         area: ['800px'],
         offset: '100px',
@@ -183,7 +182,7 @@ function del(id) {
         btn: ['确定', '取消']
     }, function () {
         $.ajax({
-            url: prefix + "/remove",
+            url: prefix + "/del",
             type: "post",
             data: {
                 'id': id
@@ -204,7 +203,6 @@ function addD(type, description) {
     layer.open({
         type: 2,
         title: '增加',
-        maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
         content: prefix + '/add/' + type + '/' + description // iframe的url
