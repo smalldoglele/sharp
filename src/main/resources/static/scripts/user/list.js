@@ -1,7 +1,14 @@
 var prefix = "/user"
 $(function () {
     load();
+    $('#search-form').submit(function() {
+        reload();
+        return false;
+    });
 });
+function reload() {
+    $('#simple-table').bootstrapTable('refresh');
+}
 
 function load() {
     $('#simple-table')
@@ -28,12 +35,11 @@ function load() {
                 queryParamsType: "",
                 // //设置为limit则会发送符合RESTFull格式的参数
                 queryParams: function (params) {
-                    return {
+                    return $.extend({
                         //说明：传入后台的参数包括offset开始索引，limit步长，sort排序列，order：desc或者,以及所有列的键值对
                         pageNumber: params.pageNumber,
-                        pageSize: params.pageSize,
-                        userName: $('#searchName').val()
-                    };
+                        pageSize: params.pageSize
+                    },$("#search-form").serializeObject());
                 },
                 // //请求服务器数据时，你可以通过重写参数的方式添加一些额外的参数，例如 toolbar 中的参数 如果
                 // queryParamsType = 'limit' ,返回参数必须包含
@@ -42,7 +48,6 @@ function load() {
                 // sortOrder.
                 // 返回false将会终止请求
                 responseHandler: function (res) {
-                    console.log(res);
                     return {
                         "total": res.result.total,//总数
                         "rows": res.result.records   //数据
@@ -119,16 +124,6 @@ function load() {
                         }
                     }]
             });
-}
-
-function reload() {
-    var opt = {
-        query: {
-            type: $('.chosen-select').val(),
-            name: $('#searchName').val()
-        }
-    }
-    $('#simple-table').bootstrapTable('refresh', opt);
 }
 
 function add() {

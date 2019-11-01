@@ -5,5 +5,6 @@ import lombok.Data;
 
 @Data
 public class UserPageParams extends PageParams {
-    private String name;
+    private String userName;
+    private String email;
 }
