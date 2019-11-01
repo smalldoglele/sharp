@@ -2,7 +2,6 @@ package cn.vagile.sharp.controller;
 
 
 import cn.vagile.sharp.bean.entity.User;
-import cn.vagile.sharp.bean.object.QMap;
 import cn.vagile.sharp.bean.object.ResultEntity;
 import cn.vagile.sharp.bean.params.UserPageParams;
 import cn.vagile.sharp.service.IUserService;

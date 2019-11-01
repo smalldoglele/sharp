@@ -1,3 +1,6 @@
+/*!
+ * 可以移植到其他项目中的通用代码
+ */
 /**
  * 如果有jquery存在
  *  将form序列化Json对象
@@ -7,7 +10,7 @@
  * var formParams = $("#formId").serializeObject();
  * </script>
  */
-if ($) {
+if (jQuery || $) {
     $.fn.serializeObject = function () {
         var a, o, h, i, e;
         a = this.serializeArray();

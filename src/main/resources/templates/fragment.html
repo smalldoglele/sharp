@@ -57,16 +57,16 @@
 
         <div class="navbar-header pull-left">
             <a href="/index.html" class="navbar-brand">
-                <small>
+                <small title="Sharp Code Generator">
                     <i class="fa fa-leaf"></i>
-                    Ace Admin
+                    Sharp CG
                 </small>
             </a>
         </div>
 
         <div class="navbar-buttons navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
-                <li class="grey dropdown-modal">
+<!--                <li class="grey dropdown-modal">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="ace-icon fa fa-tasks"></i>
                         <span class="badge badge-grey">4</span>
@@ -324,14 +324,14 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
 
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                         <img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									Jason
+									<small>欢迎</small>
+									强哥
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -341,14 +341,14 @@
                         <li>
                             <a href="#">
                                 <i class="ace-icon fa fa-cog"></i>
-                                Settings
+                                系统设置
                             </a>
                         </li>
 
                         <li>
                             <a href="/profile.html">
                                 <i class="ace-icon fa fa-user"></i>
-                                Profile
+                                个人信息
                             </a>
                         </li>
 
@@ -357,7 +357,7 @@
                         <li>
                             <a href="#">
                                 <i class="ace-icon fa fa-power-off"></i>
-                                Logout
+                                退出
                             </a>
                         </li>
                     </ul>
@@ -372,7 +372,7 @@
         try {ace.settings.loadState('sidebar')} catch (e) {}
     </script>
 
-    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+    <!--<div class="sidebar-shortcuts" id="sidebar-shortcuts">
         <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
             <button class="btn btn-success">
                 <i class="ace-icon fa fa-signal"></i>
@@ -400,10 +400,10 @@
 
             <span class="btn btn-danger"></span>
         </div>
-    </div><!-- /.sidebar-shortcuts -->
+    </div>--><!-- /.sidebar-shortcuts -->
 
-    <ul class="nav nav-list">
-        <li class="">
+    <ul class="nav nav-list" id="nav-list">
+<!--        <li class="">
             <a href="/index.html">
                 <i class="menu-icon fa fa-tachometer"></i>
                 <span class="menu-text"> Dashboard </span>
@@ -879,7 +879,7 @@
                     <b class="arrow"></b>
                 </li>
             </ul>
-        </li>
+        </li>-->
 
         <li class="">
             <a href="#" class="dropdown-toggle">
@@ -956,7 +956,7 @@
     </div>
 </div>
 
-<div th:fragment="breadcrumbs" class="breadcrumbs ace-save-state" id="breadcrumbs">
+<div th:fragment="breadcrumbs(dir,page)" class="breadcrumbs ace-save-state" id="breadcrumbs">
     <ul class="breadcrumb">
         <li>
             <i class="ace-icon fa fa-home home-icon"></i>
@@ -964,12 +964,12 @@
         </li>
 
         <li>
-            <a href="javascript:void(0);">系统管理</a>
+            <a href="javascript:void(0);" th:text="${dir}">二级目录</a>
         </li>
-        <li class="active">用户管理</li>
+        <li class="active" th:text="${page}">三级页面</li>
     </ul><!-- /.breadcrumb -->
 
-    <div class="nav-search" id="nav-search">
+    <!--<div class="nav-search" id="nav-search">
         <form class="form-search">
 								<span class="input-icon">
 									<input type="text" placeholder="Search ..." class="nav-search-input"
@@ -977,7 +977,7 @@
 									<i class="ace-icon fa fa-search nav-search-icon"></i>
 								</span>
         </form>
-    </div><!-- /.nav-search -->
+    </div>--><!-- /.nav-search -->
 </div>
 
 <div th:fragment="ace-settings-container" class="ace-settings-container" id="ace-settings-container">
@@ -1082,19 +1082,19 @@
 </a>
 
 <th:block th:fragment="basic-scripts">
-    <!--[if !IE]> -->
-    <script src="/assets/js/jquery-2.1.4.min.js"></script>
-    <!-- <![endif]-->
-    <!--[if IE]>
-    <script src="/assets/js/jquery-1.11.3.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-    </script>
-    <script src="/assets/js/bootstrap.min.js"></script>
+<!--[if !IE]> -->
+<script src="/assets/js/jquery-2.1.4.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="/assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="/assets/js/bootstrap.min.js"></script>
 </th:block>
 <th:block th:fragment="ace-scripts">
-    <script src="/assets/js/ace-elements.min.js"></script>
-    <script src="/assets/js/ace.min.js"></script>
+<script src="/assets/js/ace-elements.min.js"></script>
+<script src="/assets/js/ace.min.js"></script>
 </th:block>
 
