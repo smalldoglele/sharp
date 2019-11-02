@@ -48,7 +48,7 @@ $('#form').validate({
                 if(data.status){
                     layer.alert("保存成功",function(){
                        parent.layer.closeAll();
-                       parent.reLoad();
+                       parent.reload();
                     });
                 }
             }
@@ -62,5 +62,9 @@ $('.date-picker').datepicker({
     orientation:'auto'
 }).next().on(ace.click_event, function () {
     $(this).prev().focus();
+});
+//点击取消按钮关闭
+$(":reset").click(function(){
+    parent.layer.closeAll();
 });
 

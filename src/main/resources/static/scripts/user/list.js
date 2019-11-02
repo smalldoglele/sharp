@@ -109,9 +109,12 @@ function load() {
                         title: '更新时间'
                     },
                     {
-                        visible: false,
-                        field: 'deleted',
-                        title: '删除标记'
+                        visible: true,
+                        field: 'valid',
+                        title: '是否有效',
+                        formatter: function (value, row, index) {
+                            return value?'是':'否';
+                        }
                     },
                     {
                         title: '操作',

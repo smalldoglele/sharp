@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     /**
      * 是否禁用
      */
-    private Boolean blocked;
+    private Boolean valid;
 
     /**
      * 用户名

@@ -72,12 +72,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" for="blocked"> 是否有效: </label>
+                    <label class="col-sm-4 control-label no-padding-right" > 是否禁用: </label>
                     <div class="col-sm-4 padding-10">
-                        <label class="control-label">
-                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox"  th:checked="*{blocked}"/>
+<!--                        <label class="control-label">
+                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox"  c/>
                             <span class="lbl"></span>
-                        </label>
+                        </label>-->
+                        <label class="control-label jquery-switch" data-id="blocked" data-name="blocked" th:data-checked="*{blocked}"></label>
                     </div>
                 </div>
 
@@ -106,6 +107,7 @@
 <script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script src="/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 <script src="/assets/js/jquery.form.min.js"></script>
+<script src="/assets/js/jquery.switch.js"></script>
 <script src="/assets/layer/layer.js"></script>
 <!-- ACE脚本 -->
 <th:block th:replace="fragment::ace-scripts"/>
