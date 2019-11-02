@@ -6,6 +6,7 @@ create_time 创建时间
 update_by 更新人
 update_time 更新时间
 deleted 是否删除 1/0
+varlid 是否有效 0/1
 blocked 启用/停用 0/1
 ```
 #### 例子`sys_user`
@@ -19,7 +20,7 @@ create table `sys_user`
 	create_by bigint not null comment '创建人',
 	update_by bigint not null comment '更新人',
 	deleted bit not null default b'0' comment '是否删除',
-	blocked bit not null default b'0' comment '是否禁用',
+	valid bit not null default b'0' comment '是否有效',
 	user_name varchar(50) comment '用户名',
 	nick_name varchar(50) comment '昵称',
 	true_name varchar(50) comment '真实姓名',
