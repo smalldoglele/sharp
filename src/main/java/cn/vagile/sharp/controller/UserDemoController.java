@@ -8,22 +8,21 @@ import cn.vagile.sharp.service.IUserService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- * 用户表 前端控制器
+ *  前端控制器
  * </p>
  *
  * @author walden
- * @since 2019-10-17
+ * @since 2019-10-31
  */
 @Slf4j
-@Controller
-@RequestMapping("/user")
-public class UserController {
+@RestController
+@RequestMapping("/user-demo")
+public class UserDemoController {
     @Autowired
     private IUserService userService;
 
@@ -73,6 +72,5 @@ public class UserController {
         User user = userService.getUserByUserNameAndNotSelf(userName, selfId);
         return user == null;
     }
-
 }
 

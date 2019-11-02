@@ -16,9 +16,9 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" for="userName"><span class="red">*</span> 用户名: </label>
                     <div class="col-sm-4">
-                            <input type="text" id="userName" name="userName" placeholder="请输入用户名称" required class="col-xs-10 col-sm-12"
-                                   th:field="*{userName}"
-                            />
+                        <input type="text" id="userName" name="userName" placeholder="请输入用户名称" required class="col-xs-10 col-sm-12"
+                               th:field="*{userName}"
+                        />
                     </div>
                 </div>
 
@@ -72,13 +72,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" > 是否禁用: </label>
+                    <label class="col-sm-4 control-label no-padding-right"> 是否有效: </label>
                     <div class="col-sm-4 padding-10">
-<!--                        <label class="control-label">
-                            <input class="ace ace-switch ace-switch-7" id="blocked" name="blocked" type="checkbox"  c/>
-                            <span class="lbl"></span>
-                        </label>-->
-                        <label class="control-label jquery-switch" data-id="blocked" data-name="blocked" th:data-checked="*{blocked}"></label>
+                        <label class="control-label jquery-switch" data-id="valid" data-name="valid" th:data-checked="*{valid}"></label>
                     </div>
                 </div>
 
